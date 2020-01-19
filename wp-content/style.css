@@ -1,0 +1,232 @@
+/*
+Theme Name: lateterm
+Text Domain: lateterm
+Version: 0.0.0
+Requires at least: 4.7
+Requires PHP: 5.2.4
+Description: Late terminal viewing at night
+Tags: dark, computer, terminal, minimalist, light
+Author: dd86k <dd@dax.moe>
+Author URI: https://github.com/dd86k
+Theme URI: https://github.com/dd86k/lateterm
+License: BSD 3-clase
+License URI: https://spdx.org/licenses/BSD-3-Clause.html
+
+Using https://codex.wordpress.org/Theme_Development
+*/
+
+body {
+	margin: 0;
+	background: #000084;
+	color: white;
+	font-size: 1.3em;
+	font-family: monospace;
+}
+
+/** Nav bar */
+
+nav {
+	margin: 0;
+	background: black;
+}
+nav div {
+	display: inline-block;
+}
+nav ul li {
+	display: inline;
+}
+nav a {
+	white-space: pre;
+	text-decoration: none;
+}
+nav a::before { content: ' '; }
+nav a::after { content: ' '; }
+
+.menu ul {
+	margin: 0;
+	padding: 0;
+}
+
+.content {
+	width: 100%;
+}
+
+/** sidebar */
+
+.sidebar {
+	color: black;
+	float: left;
+	width: 30%;
+	padding: 1em 2em 1em 1em;
+	background: darkgray;
+	box-sizing: border-box;
+}
+.sidebar ul {
+	margin: 2em 0;
+	padding: 0;
+}
+.sidebar li {
+	margin: 0 0 1em 0;
+	list-style: none;
+}
+.sidebar ul li a {
+	background: gray;
+	font-weight: bold;
+	text-decoration: none;
+}
+.sidebar ul li a::before {
+	content: ' < ';
+}
+.sidebar ul li a::after {
+	content: ' > ';
+}
+.sidebar form {
+	margin: 0;
+}
+.sidebar table, #s, #searchsubmit  {
+	width: 100%;
+}
+.sidebar p {
+	margin: 0;
+}
+.sidebar p a {
+	color: black;
+}
+
+/** main */
+
+.main {
+	float: left;
+	width: 70%;
+	padding: 0 1em;
+	box-sizing: border-box;
+}
+
+header {
+	border: solid white;
+	padding: 1em;
+}
+header h1 {
+	margin: 0;
+}
+
+/** Generic */
+
+a {
+	color: white;
+}
+
+pre {
+	border: solid white;
+	padding: 1em;
+	background: #333;
+}
+code {
+	background: #333;
+}
+code::before {
+	content: ' ';
+	background: #333;
+}
+code::after {
+	content: ' ';
+	background: #333;
+}
+
+hr {
+	border-top:white solid;
+	border-bottom: 0;
+}
+
+form {
+	text-align: center;
+	margin: 10px 0;
+}
+
+input, textarea {
+	font-family: monospace;
+	border: none;
+	background: gray;
+	color: white;
+	padding: 1em;
+	box-shadow: 1em 1em black;
+}
+input[type="text"] {
+	background: white;
+	color: black;
+	margin-right: 1em;
+}
+input[type="submit"] {
+	font-weight: bold;
+}
+input[type="checkbox"] {
+	box-shadow: none;
+	
+}
+
+.popmain {
+	margin: 1em auto 2em;
+	padding: 1em;
+	text-align: center;
+	width: 90%;
+	box-shadow: 1em 1em black;
+	background: gray;
+}
+
+.posts, .title {
+	margin: 0;
+}
+
+.current_page_item {
+	background: grey;
+}
+
+footer {
+	padding: 1em 0 1em 1em;
+	float: left;
+	width: 90vw;
+	box-sizing: border-box;
+}
+
+blockquote p::before {
+	content: '"';
+}
+blockquote p::after {
+	content: '"';
+}
+
+/** comments */
+
+#commentform {
+	text-align: right;
+}
+#commentform input[type="text"], #commentform textarea {
+	width: 80%;
+}
+#commentform textarea {
+	background: white;
+	color: black;
+	margin-right: 1em;
+}
+.comments ul {
+	padding: 0;
+}
+.comments ul li {
+	list-style: none;
+}
+.comments cite {
+	font-style: normal;
+}
+.comments .comment-author {
+	border-left: .5em solid white;
+	padding: 1em;
+}
+.comment-list > .comment {
+	padding: 1em;
+	margin-bottom: 2em;
+	box-shadow: 1em 1em black;
+	background: gray;
+}
+.comments ul.children {
+	margin: 1em 0 0 2em;
+}
