@@ -81,17 +81,18 @@ nav a::after { content: ' '; }
 	content: ' > ';
 }
 .sidebar form {
-	margin: 0;
+	margin: 0 0 2em 0;
 }
 .sidebar table, #s, #searchsubmit  {
 	width: 100%;
 }
-.sidebar p a {
+.sidebar a {
 	color: black;
 }
 .sidebar p.t {
 	text-align: center;
 	background: white;
+	font-weight: bold;
 }
 
 /** main */
