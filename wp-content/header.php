@@ -9,9 +9,6 @@
 </head>
 <body>
 <nav>
-<div <?php if (is_home()) echo 'class="current_page_item"'?>>
-<a href="<?php bloginfo('url'); ?>">HOME</a>
-</div>
 <?php wp_nav_menu(); ?>
 </nav>
 <div class="popmain">

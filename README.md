@@ -1,4 +1,4 @@
-A super quick, DOS-inspired WordPress theme.
+_Quick and Dirty DOS-inspired Wordress Theme_
 
 PRs are welcome.
 

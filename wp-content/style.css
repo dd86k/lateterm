@@ -42,6 +42,9 @@ nav a {
 nav a::before { content: ' '; }
 nav a::after { content: ' '; }
 
+.menu {
+	margin: 0;
+}
 .menu ul {
 	margin: 0;
 	padding: 0;
@@ -120,6 +123,7 @@ pre {
 	border: solid white;
 	padding: 1em;
 	background: #333;
+	overflow-y: scroll;
 }
 code {
 	background: #333;
