@@ -62,7 +62,7 @@ nav a::after { content: ' '; }
 	box-sizing: border-box;
 }
 .sidebar ul {
-	margin: 2em 0;
+	margin: 1em 0;
 	padding: 0;
 }
 .sidebar li {
@@ -86,11 +86,12 @@ nav a::after { content: ' '; }
 .sidebar table, #s, #searchsubmit  {
 	width: 100%;
 }
-.sidebar p {
-	margin: 0;
-}
 .sidebar p a {
 	color: black;
+}
+.sidebar p.t {
+	text-align: center;
+	background: white;
 }
 
 /** main */

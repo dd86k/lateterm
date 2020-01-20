@@ -19,8 +19,7 @@
 <div class="sidebar">
 <?php
 get_search_form();
-get_sidebar();
-wp_nav_menu(); ?>
-<p>theme: <a href="https://git.dd86k.space/lateterm">lateterm</a></p>
+get_sidebar(); ?>
+<p>theme: lateterm (<a href="https://git.dd86k.space/lateterm">Home</a>, <a href="https://git.dd86k.space/lateterm">Github</a>)</p>
 </div>
 <div class="main">
