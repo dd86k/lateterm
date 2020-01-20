@@ -42,10 +42,7 @@ nav a {
 nav a::before { content: ' '; }
 nav a::after { content: ' '; }
 
-.menu {
-	margin: 0;
-}
-.menu ul {
+.menu, .menu ul  {
 	margin: 0;
 	padding: 0;
 }
