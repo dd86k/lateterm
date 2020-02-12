@@ -126,6 +126,7 @@ pre {
 }
 code {
 	background: #333;
+	white-space: nowrap;
 }
 code::before {
 	content: ' ';
