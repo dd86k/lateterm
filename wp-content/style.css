@@ -23,86 +23,7 @@ body {
 	font-family: monospace;
 }
 
-/** Nav bar */
-
-nav {
-	margin: 0;
-	background: black;
-}
-nav div {
-	display: inline-block;
-}
-nav ul li {
-	display: inline;
-}
-nav a {
-	white-space: pre;
-	text-decoration: none;
-}
-nav a::before { content: ' '; }
-nav a::after { content: ' '; }
-
-.menu, .menu ul  {
-	margin: 0;
-	padding: 0;
-}
-
-.content {
-	width: 100%;
-}
-
-/** sidebar */
-
-.sidebar {
-	color: black;
-	float: left;
-	width: 30%;
-	padding: 1em 2em 1em 1em;
-	background: darkgray;
-	box-sizing: border-box;
-}
-.sidebar ul {
-	margin: 1em 0;
-	padding: 0;
-}
-.sidebar li {
-	margin: 0 0 1em 0;
-	list-style: none;
-}
-.sidebar ul li a {
-	background: gray;
-	font-weight: bold;
-	text-decoration: none;
-}
-.sidebar ul li a::before {
-	content: ' < ';
-}
-.sidebar ul li a::after {
-	content: ' > ';
-}
-.sidebar form {
-	margin: 0 0 2em 0;
-}
-.sidebar table, #s, #searchsubmit  {
-	width: 100%;
-}
-.sidebar div a {
-	color: black;
-}
-.sidebar p.t {
-	text-align: center;
-	background: white;
-	font-weight: bold;
-}
-
-/** main */
-
-.main {
-	float: left;
-	width: 70%;
-	padding: 0 1em;
-	box-sizing: border-box;
-}
+/** SECTION Generic */
 
 header {
 	border: solid white;
@@ -111,8 +32,6 @@ header {
 header h1 {
 	margin: 0;
 }
-
-/** Generic */
 
 a {
 	color: white;
@@ -199,7 +118,110 @@ blockquote p::after {
 	content: '"';
 }
 
-/** comments */
+.singlenav > div {
+	overflow: auto;
+}
+
+/** SECTION WP variables */
+
+.main {
+	display: inline-block;
+	width: 70%;
+	padding: 0 1em;
+	box-sizing: border-box;
+}
+
+.main > div {
+	overflow: auto;
+}
+
+img.alignright {
+	float: right;
+	margin: 1em;
+}
+img.alignleft {
+	float: left;
+	margin: 1em;
+}
+img.aligncenter {
+	display: block;
+	margin: 1em auto;
+}
+
+/** SECTION Navbar */
+
+nav {
+	margin: 0;
+	background: black;
+}
+nav div {
+	display: inline-block;
+}
+nav ul li {
+	display: inline;
+}
+nav a {
+	white-space: pre;
+	text-decoration: none;
+}
+nav a::before { content: ' '; }
+nav a::after { content: ' '; }
+
+.menu, .menu ul  {
+	margin: 0;
+	padding: 0;
+}
+
+.content {
+	width: 100%;
+}
+
+/** SECTION sidebar */
+
+.sidebar {
+	color: black;
+	display: inline-block;
+	vertical-align: top;
+	width: 25%;
+	padding: 1em 2em 1em 1em;
+	background: darkgray;
+	box-sizing: border-box;
+}
+.sidebar ul {
+	margin: 1em 0;
+	padding: 0;
+}
+.sidebar li {
+	margin: 0 0 1em 0;
+	list-style: none;
+}
+.sidebar ul li a {
+	background: gray;
+	font-weight: bold;
+	text-decoration: none;
+}
+.sidebar ul li a::before {
+	content: ' < ';
+}
+.sidebar ul li a::after {
+	content: ' > ';
+}
+.sidebar form {
+	margin: 0 0 2em 0;
+}
+.sidebar table, #s, #searchsubmit  {
+	width: 100%;
+}
+.sidebar div a {
+	color: black;
+}
+.sidebar p.t {
+	text-align: center;
+	background: white;
+	font-weight: bold;
+}
+
+/** SECTION comments */
 
 #commentform {
 	text-align: right;

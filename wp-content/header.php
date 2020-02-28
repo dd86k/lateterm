@@ -12,11 +12,9 @@
 <?php wp_nav_menu(); ?>
 </nav>
 <div class="popmain">
-<h1 class="title"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-<h2 class="title"><?php bloginfo('description'); ?></h2>
+  <h1 class="title"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+  <h2 class="title"><?php bloginfo('description'); ?></h2>
 </div>
 <div class="content">
-<div class="sidebar">
-<?php get_sidebar(); ?>
-</div>
+  <div class="sidebar"><?php get_sidebar(); ?></div>
 <div class="main">

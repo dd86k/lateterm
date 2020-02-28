@@ -4,13 +4,15 @@
 <?php the_time(get_option('date_format')); ?><br>
 <?php the_author(); ?>
 </header>
-<p><?php the_content(); ?></p>
-<hr>
-<div>
-<span><?php previous_post_link('<- %link'); ?> </span>
-<span style="float: right;"><?php next_post_link('%link ->'); ?></span>
+<div><?php the_content(); ?></div>
+<div class="singlenav">
+  <hr>
+  <div>
+  <span><?php previous_post_link('<- %link'); ?></span>
+  <span style="float: right;"><?php next_post_link('%link ->'); ?></span>
+  </div>
+  <hr>
 </div>
-<hr>
 <?php
 if (comments_open() || get_comments_number()) {
 	comments_template();
