@@ -21,6 +21,7 @@ body {
 	color: white;
 	font-size: 1.3em;
 	font-family: monospace;
+	overflow-y: scroll;
 }
 
 /** SECTION Generic */
