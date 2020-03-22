@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>" />
-<title><?php the_title(); ?></title>
+<meta charset="<?php bloginfo('charset'); ?>" />
+<title><?php bloginfo('name'); ?></title>
 <?php if (is_singular() && get_option('thread_comments')) wp_enqueue_script('comment-reply'); ?>
 <?php wp_head(); ?>
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
