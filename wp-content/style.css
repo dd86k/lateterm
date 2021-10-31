@@ -38,6 +38,12 @@ a {
 	color: white;
 }
 
+table td, table th {
+	border: 1px solid white;
+	padding: .5em;
+	border-collapse: collapse;
+}
+
 pre {
 	border: solid white;
 	padding: 1em;
