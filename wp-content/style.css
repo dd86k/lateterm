@@ -116,26 +116,26 @@ blockquote p::after {
 .main > div {
 	overflow: auto;
 }
-.main div table td, .main div table th {
+.main table td, .main table th {
 	border: 1px solid white;
 	padding: .5em;
 	border-collapse: collapse;
 }
-.main div pre {
+.main pre {
 	border: solid white;
 	padding: 1em;
 	background: #333;
 	overflow-y: scroll;
 }
-.main div code {
+.main code {
 	background: #333;
 	white-space: nowrap;
 }
-.main div code::before {
+.main code::before {
 	content: '\00a0 ';
 	background: #333;
 }
-.main div code::after {
+.main code::after {
 	content: '\00a0 ';
 	background: #333;
 }
