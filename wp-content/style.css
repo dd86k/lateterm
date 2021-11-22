@@ -38,31 +38,6 @@ a {
 	color: white;
 }
 
-table td, table th {
-	border: 1px solid white;
-	padding: .5em;
-	border-collapse: collapse;
-}
-
-pre {
-	border: solid white;
-	padding: 1em;
-	background: #333;
-	overflow-y: scroll;
-}
-code {
-	background: #333;
-	white-space: nowrap;
-}
-code::before {
-	content: ' ';
-	background: #333;
-}
-code::after {
-	content: ' ';
-	background: #333;
-}
-
 hr {
 	border-top:white solid;
 	border-bottom: 0;
@@ -129,7 +104,7 @@ blockquote p::after {
 	overflow: auto;
 }
 
-/** SECTION WP variables */
+/** SECTION WP main posts */
 
 .main {
 	display: inline-block;
@@ -141,18 +116,46 @@ blockquote p::after {
 .main > div {
 	overflow: auto;
 }
+.main div table td, .main div table th {
+	border: 1px solid white;
+	padding: .5em;
+	border-collapse: collapse;
+}
+.main div pre {
+	border: solid white;
+	padding: 1em;
+	background: #333;
+	overflow-y: scroll;
+}
+.main div code {
+	background: #333;
+	white-space: nowrap;
+}
+.main div code::before {
+	content: '\00a0 ';
+	background: #333;
+}
+.main div code::after {
+	content: '\00a0 ';
+	background: #333;
+}
 
-img.alignright {
+.main img.alignright {
 	float: right;
 	margin: 1em;
 }
-img.alignleft {
+.main img.alignleft {
 	float: left;
 	margin: 1em;
 }
-img.aligncenter {
+.main img.aligncenter {
 	display: block;
 	margin: 1em auto;
+}
+
+.main figcaption {
+	text-align: center;
+	margin: .5em;
 }
 
 /** SECTION Navbar */
