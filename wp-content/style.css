@@ -161,6 +161,8 @@ blockquote p::after {
 	margin: .5em;
 }
 
+.main .wp-block-image img { border-radius: 50% !important; }
+
 /** SECTION Navbar */
 
 nav {
