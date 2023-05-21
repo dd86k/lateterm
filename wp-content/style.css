@@ -25,9 +25,11 @@ body {
 	font-size: 1.3em;
 	font-family: monospace;
 	overflow-y: scroll;
+	overflow-x: visible;
+	box-sizing: border-box;
 }
 
-/** SECTION Generic */
+/** ANCHOR Generic */
 
 header {
 	border: solid white;
@@ -35,6 +37,16 @@ header {
 }
 header h1 {
 	margin: 0;
+}
+
+.main div h1, 
+.main div h2,
+.main div h3,
+.main div h4,
+.main div h5,
+.main div h6 {
+	margin: 1em 0;
+	border-bottom: .1em solid white;
 }
 
 a {
@@ -46,30 +58,25 @@ hr {
 	border-bottom: 0;
 }
 
-form {
-	text-align: center;
-	margin: 10px 0;
-}
-
 input, textarea {
 	font-family: monospace;
 	border: none;
 	background: gray;
 	color: white;
 	padding: 1em;
+	margin: 0;
 	box-shadow: 1em 1em black;
 }
 input[type="text"] {
 	background: white;
 	color: black;
-	margin-right: 1em;
 }
-input[type="submit"] {
+.comments input[type="submit"] {
 	font-weight: bold;
+	margin: 1em;
 }
 input[type="checkbox"] {
 	box-shadow: none;
-	
 }
 
 .popmain {
@@ -107,7 +114,13 @@ blockquote p::after {
 	overflow: auto;
 }
 
-/** SECTION WP main posts */
+/* ANCHOR Post list */
+
+.posts table td:nth-child(2) {
+	width: 100%;
+}
+
+/* ANCHOR Main post content */
 
 .main {
 	display: inline-block;
@@ -130,17 +143,8 @@ blockquote p::after {
 	background: #333;
 	overflow-y: scroll;
 }
-.main code {
-	background: #333;
+.main .wp-block-code {
 	white-space: nowrap;
-}
-.main code::before {
-	content: '\00a0 ';
-	background: #333;
-}
-.main code::after {
-	content: '\00a0 ';
-	background: #333;
 }
 
 .main img.alignright {
@@ -161,9 +165,24 @@ blockquote p::after {
 	margin: .5em;
 }
 
+.main div p code, .main div p kbd {
+	background: #333;
+}
+
+/* ANCHOR Main content images */
+
 .main .wp-block-image img { border-radius: 50% !important; }
 
-/** SECTION Navbar */
+/* ANCHOR Main content tables */
+
+.wp-block-table.is-style-stripes {
+	border-bottom: 0;
+}
+.wp-block-table.is-style-stripes tbody tr:nth-child(2n+1) {
+	background-color: maroon;
+}
+
+/** ANCHOR Navbar */
 
 nav {
 	margin: 0;
@@ -193,14 +212,14 @@ nav a::after { content: ' '; }
 	width: 100%;
 }
 
-/** SECTION sidebar */
+/** ANCHOR Sidebar */
 
 .sidebar {
 	color: black;
 	display: inline-block;
 	vertical-align: top;
 	width: 25%;
-	padding: 1em 2em 1em 1em;
+	padding: 1em;
 	background: darkgray;
 	box-sizing: border-box;
 }
@@ -213,15 +232,18 @@ nav a::after { content: ' '; }
 	list-style: none;
 }
 .sidebar ul li a {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
 	background: gray;
 	font-weight: bold;
 	text-decoration: none;
 }
 .sidebar ul li a::before {
-	content: ' < ';
+	content: ' ';
 }
 .sidebar ul li a::after {
-	content: ' > ';
+	content: ' ';
 }
 .sidebar form {
 	margin: 0 0 2em 0;
@@ -238,7 +260,7 @@ nav a::after { content: ' '; }
 	font-weight: bold;
 }
 
-/** SECTION comments */
+/** ANCHOR Comments */
 
 #commentform {
 	text-align: right;
@@ -266,6 +288,7 @@ nav a::after { content: ' '; }
 }
 .comment-list > .comment {
 	padding: 1em;
+	margin: 1em;
 	margin-bottom: 2em;
 	box-shadow: 1em 1em black;
 	background: gray;
