@@ -1,9 +1,12 @@
+@charset "utf-8";
+
 /*
 Theme Name: lateterm
 Text Domain: lateterm
-Version: 0.0.1
+Version: 0.1.0
 Requires at least: 4.7
-Requires PHP: 5.2.4
+Requires PHP: 7.4
+Tested up to: 6.2.2
 Description: Quick and Dirty DOS-inspired Wordress Theme
 Tags: dos, computer, terminal, minimalist
 Author: dd86k <dd@dax.moe>
