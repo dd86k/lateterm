@@ -6,12 +6,14 @@
 </header>
 <div><?php the_content(); ?></div>
 <div class="singlenav">
-  <hr>
   <div>
-  <span><?php previous_post_link('<- %link'); ?></span>
-  <span style="float: right;"><?php next_post_link('%link ->'); ?></span>
+  <?php
+    $prev = get_previous_post_link('<- %link');
+    if ($prev) { echo('<span>'.$prev.'</span>'); }
+    $next = get_next_post_link('%link ->');
+    if ($next) { echo('<span style="float: right;">'.$next.'</span>'); }
+  ?>
   </div>
-  <hr>
 </div>
 <?php
 if (comments_open() || get_comments_number()) {

@@ -110,10 +110,6 @@ blockquote p::after {
 	content: '"';
 }
 
-.singlenav > div {
-	overflow: auto;
-}
-
 /* ANCHOR Post list */
 
 .posts table td:nth-child(2) {
@@ -258,6 +254,17 @@ nav a::after { content: ' '; }
 	text-align: center;
 	background: white;
 	font-weight: bold;
+}
+
+/* ANCHOR single post footer */
+
+.singlenav {
+	margin: 2em 0;
+}
+.singlenav div span {
+	display: inline-block;
+	border: .1em solid white;
+	padding: 1em;
 }
 
 /** ANCHOR Comments */
