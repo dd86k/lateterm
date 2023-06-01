@@ -166,8 +166,7 @@ blockquote p::after {
 }
 
 /* ANCHOR Main content images */
-
-.main .wp-block-image img { border-radius: 50% !important; }
+.main .is-style-rounded img { border-radius: 50% !important; }
 
 /* ANCHOR Main content tables */
 
