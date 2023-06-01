@@ -284,6 +284,10 @@ nav a::after { content: ' '; }
 
 /** ANCHOR Comments */
 
+h3.comment-reply-title {
+	border: .25em dotted white !important;
+	padding: 1em;
+}
 #commentform {
 	text-align: right;
 }
