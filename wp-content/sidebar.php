@@ -22,4 +22,4 @@ foreach ($categories as $category) {
 <li><a href="<?php bloginfo('rdf_url') ?>">RDF/RSS 1.0 FEED</a></li>
 <li><a href="<?php bloginfo('rss_url') ?>">RSS 0.92 FEED</a></li>
 </ul>
-<div>theme: <a href="https://github.com/dd86k/lateterm">lateterm</a></div>
+<div><a href="https://github.com/dd86k/lateterm">lateterm Theme</a></div>
