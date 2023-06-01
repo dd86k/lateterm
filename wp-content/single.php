@@ -21,10 +21,10 @@ if ( $u_modified_time >= $u_time + 86400 ) {
 <div class="singlenav">
   <div>
   <?php
-    $prev = get_previous_post_link('<- %link');
-    if ($prev) { echo('<span>'.$prev.'</span>'); }
-    $next = get_next_post_link('%link ->');
-    if ($next) { echo('<span style="float: right;">'.$next.'</span>'); }
+    $prev = get_previous_post_link('%link');
+    if ($prev) { echo('<span class="prev">'.$prev.'</span>'); }
+    $next = get_next_post_link('%link');
+    if ($next) { echo('<span class="next">'.$next.'</span>'); }
   ?>
   </div>
 </div>

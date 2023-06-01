@@ -263,10 +263,23 @@ nav a::after { content: ' '; }
 .singlenav {
 	margin: 2em 0;
 }
-.singlenav div span {
+.singlenav div a {
 	display: inline-block;
 	border: .1em solid white;
 	padding: 1em;
+}
+.singlenav div span.prev a::before {
+	content: '<- ';
+}
+.singlenav div span.next a {
+	float: right;
+}
+.singlenav div span a:focus {
+	color: #000084;
+	background-color: white;
+}
+.singlenav div span.next a::after {
+	content: ' ->';
 }
 
 /** ANCHOR Comments */
