@@ -3,16 +3,16 @@
 /*
 Theme Name: lateterm
 Text Domain: lateterm
-Version: 0.2.1
+Version: 0.2.2
 Requires at least: 4.7
 Requires PHP: 7.4
-Tested up to: 6.2.2
+Tested up to: 6.6.2
 Description: Quick and Dirty DOS-inspired Wordress Theme
 Tags: dos, computer, terminal, minimalist
 Author: dd86k <dd@dax.moe>
 Author URI: https://github.com/dd86k
 Theme URI: https://github.com/dd86k/lateterm
-License: BSD 3-clase
+License: BSD-3-Clause
 License URI: https://spdx.org/licenses/BSD-3-Clause.html
 
 Using https://codex.wordpress.org/Theme_Development
@@ -30,6 +30,11 @@ body {
 }
 
 /** ANCHOR Generic */
+
+.pagecontent {
+	margin: 0 auto;
+	max-width: 60em;
+}
 
 header {
 	border: solid white;

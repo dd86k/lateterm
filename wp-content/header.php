@@ -11,6 +11,7 @@
 <nav>
 <?php wp_nav_menu(); ?>
 </nav>
+<div class="pagecontent">
 <div class="popmain">
   <h1 class="title"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
   <h2 class="title"><?php bloginfo('description'); ?></h2>
