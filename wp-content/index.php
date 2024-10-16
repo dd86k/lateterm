@@ -4,8 +4,7 @@ echo('<div class="posts">');
 
 if (is_search()) {
 	echo('<h2>Search results for: "'.get_search_query().'"</h2>');
-}
-if (have_posts()) {
+} else if (have_posts()) {
 	echo('<table>');
 	 while (have_posts()) {
 		the_post();
@@ -15,8 +14,6 @@ if (have_posts()) {
 		echo('</tr>');
 	}
 	echo('</table>');
-} else {
-	echo('<p>'._e('Sorry, no posts matched your criteria.').'</p>');
 }
 
 echo('</div>');
