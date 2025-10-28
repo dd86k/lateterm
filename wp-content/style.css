@@ -15,7 +15,7 @@ Theme URI: https://github.com/dd86k/lateterm
 License: BSD-3-Clause
 License URI: https://spdx.org/licenses/BSD-3-Clause.html
 
-Using https://codex.wordpress.org/Theme_Development
+Using https://developer.wordpress.org/themes/
 */
 
 body {
@@ -33,7 +33,7 @@ body {
 
 .pagecontent {
 	margin: 0 auto;
-	max-width: 60em;
+	max-width: 80em;
 }
 
 header {
