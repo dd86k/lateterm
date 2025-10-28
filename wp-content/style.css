@@ -4,9 +4,9 @@
 Theme Name: lateterm
 Text Domain: lateterm
 Version: 0.2.2
-Requires at least: 4.7
-Requires PHP: 7.4
-Tested up to: 6.6.2
+Requires at least: 8.0
+Requires PHP: 8.2
+Tested up to: 6.8
 Description: Quick and Dirty DOS-inspired Wordress Theme
 Tags: dos, computer, terminal, minimalist
 Author: dd86k <dd@dax.moe>
@@ -20,21 +20,12 @@ Using https://developer.wordpress.org/themes/
 
 body {
 	margin: 0;
-	background: #000084;
-	color: white;
-	font-size: 1.3em;
-	font-family: monospace;
 	overflow-y: scroll;
 	overflow-x: visible;
 	box-sizing: border-box;
 }
 
 /** ANCHOR Generic */
-
-.pagecontent {
-	margin: 0 auto;
-	max-width: 80em;
-}
 
 header {
 	border: solid white;
@@ -238,6 +229,7 @@ nav a::after { content: ' '; }
 	display: inline-block;
 	width: 100%;
 	text-align: center;
+	/* Should eventually have "color_4" setting */
 	background: gray;
 	font-weight: bold;
 	text-decoration: none;

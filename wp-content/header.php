@@ -5,6 +5,18 @@
 <title><?php bloginfo('name'); ?></title>
 <?php if (is_singular() && get_option('thread_comments')) wp_enqueue_script('comment-reply'); ?>
 <?php wp_head(); ?>
+<style>
+body {
+  color: <?php echo esc_attr( get_theme_mod( 'lateterm_font_color', 'white' ) ); ?>;
+  background-color: <?php echo esc_attr( get_theme_mod( 'lateterm_bg_color', '#000084' ) ); ?>;
+  font-family: <?php echo esc_attr( get_theme_mod( 'lateterm_font_family', 'monospace' ) ); ?>;
+	font-size: <?php echo esc_attr( get_theme_mod( 'lateterm_font_size', '18px' ) );;
+}
+.pagecontent {
+  max-width: <?php echo esc_attr( get_theme_mod( 'lateterm_max_width', '70em' ) ); ?>;
+	margin: 0 auto;
+}
+</style>
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
 </head>
 <body>
