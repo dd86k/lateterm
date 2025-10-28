@@ -10,7 +10,7 @@ body {
   color: <?php echo esc_attr( get_theme_mod( 'lateterm_font_color', 'white' ) ); ?>;
   background-color: <?php echo esc_attr( get_theme_mod( 'lateterm_bg_color', '#000084' ) ); ?>;
   font-family: <?php echo esc_attr( get_theme_mod( 'lateterm_font_family', 'monospace' ) ); ?>;
-	font-size: <?php echo esc_attr( get_theme_mod( 'lateterm_font_size', '18px' ) );;
+	font-size: <?php echo esc_attr( get_theme_mod( 'lateterm_font_size', '18px' ) ); ?>;
 }
 .pagecontent {
   max-width: <?php echo esc_attr( get_theme_mod( 'lateterm_max_width', '70em' ) ); ?>;
