@@ -29,11 +29,11 @@ function lateterm_customize_theme_options_register( $wp_customize ) {
     
     // FONT SIZE
     $wp_customize->add_setting( 'lateterm_font_size', array(
-        'default'           => 'monospace',
+        'default'           => '18px',
         'sanitize_callback' => 'sanitize_text_field',
     ) );
     $wp_customize->add_control( 'lateterm_font_size', array(
-        'label'   => __( 'Font Family', 'lateterm' ),
+        'label'   => __( 'Font Size', 'lateterm' ),
         'section' => 'lateterm_options',
         'type'    => 'text',
     ) );
