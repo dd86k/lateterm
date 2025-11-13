@@ -21,7 +21,7 @@ foreach ($categories as $category) {
 <p class="t">Links</p>
 <ul class="meta">
 <?php if (get_theme_mod('lateterm_show_login_button', true)) { ?>
-	<li><a href="echo wp_login_url(); ?>">LOGIN</a></li>
+	<li><a href="<?php echo wp_login_url(); ?>">LOGIN</a></li>
 <?php } ?>
 <?php if (get_theme_mod('lateterm_show_atom_button', true)) { ?>
 	<li><a href="<?php bloginfo('atom_url') ?>">ATOM FEED</a></li>
