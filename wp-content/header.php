@@ -1,8 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html prefix="og: https://ogp.me/ns#">
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo('charset'); ?>" />
 <title><?php bloginfo('name'); ?></title>
+<meta charset="<?php bloginfo('charset'); ?>" />
+<meta property="og:title" content="<?= esc_attr(wp_get_document_title()) ?>" />
+<meta property="og:type" content="<?= is_single() ? 'article' : 'website' ?>" />
+<meta property="og:url" content="<?= esc_url(get_permalink()) ?>" />
+<meta property="og:image" content="<?= esc_url(get_the_post_thumbnail_url(null, 'large') ?: get_site_icon_url(512) ?: get_template_directory_uri() . '/assets/default-og.jpg') ?>" />
 <?php if (is_singular() && get_option('thread_comments')) wp_enqueue_script('comment-reply'); ?>
 <?php wp_head(); ?>
 <style>
