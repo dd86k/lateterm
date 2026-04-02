@@ -338,3 +338,18 @@ h3.comment-reply-title {
 .comments ul.children {
 	margin: 1em 0 0 2em;
 }
+
+/* ANCHOR Back to top */
+
+#back-to-top {
+	display: none;
+	position: fixed;
+	bottom: 1em;
+	right: 1em;
+	padding: .5em .7em;
+	background: gray;
+	color: white;
+	text-decoration: none;
+	font-size: 1.5em;
+	box-shadow: .3em .3em black;
+}
