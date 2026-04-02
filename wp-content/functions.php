@@ -140,3 +140,39 @@ add_action( 'customize_register', 'lateterm_customize_theme_show_register' );
 function lateterm_sanitize_checkbox( $checked ) {
     return ( isset( $checked ) && true == $checked ) ? true : false;
 }
+
+// Add id attributes to content headers for anchor links
+function lateterm_add_header_ids( $content ) {
+    return preg_replace_callback(
+        '/<(h[1-6])(.*?)>(.*?)<\/\1>/i',
+        function ( $matches ) {
+            $tag   = $matches[1];
+            $attrs = $matches[2];
+            $text  = $matches[3];
+            // Skip if id already exists
+            if ( preg_match( '/\bid\s*=/i', $attrs ) ) {
+                return $matches[0];
+            }
+            $id = sanitize_title( wp_strip_all_tags( $text ) );
+            return sprintf( '<%s%s id="%s">%s</%s>', $tag, $attrs, esc_attr( $id ), $text, $tag );
+        },
+        $content
+    );
+}
+add_filter( 'the_content', 'lateterm_add_header_ids' );
+
+// Inline script: clicking a header updates the URL hash
+function lateterm_header_anchor_script() {
+    if ( ! is_singular() ) return;
+    ?>
+    <script>
+    document.addEventListener('click', function(e) {
+        var h = e.target.closest('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
+        if (h && document.querySelector('.main') && document.querySelector('.main').contains(h)) {
+            history.replaceState(null, '', '#' + h.id);
+        }
+    });
+    </script>
+    <?php
+}
+add_action( 'wp_footer', 'lateterm_header_anchor_script' );

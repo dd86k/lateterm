@@ -36,7 +36,7 @@ header ul {
 	margin: .5em 0;
 }
 
-.main div h1, 
+.main div h1,
 .main div h2,
 .main div h3,
 .main div h4,
@@ -44,6 +44,27 @@ header ul {
 .main div h6 {
 	margin: 1em 0;
 	border-bottom: .1em solid white;
+	cursor: pointer;
+}
+.main div h1[id]::before,
+.main div h2[id]::before,
+.main div h3[id]::before,
+.main div h4[id]::before,
+.main div h5[id]::before,
+.main div h6[id]::before {
+	content: "\1F517";
+	float: right;
+	margin-left: .3em;
+	opacity: 0;
+	transition: opacity .2s;
+}
+.main div h1[id]:hover::before,
+.main div h2[id]:hover::before,
+.main div h3[id]:hover::before,
+.main div h4[id]:hover::before,
+.main div h5[id]:hover::before,
+.main div h6[id]:hover::before {
+	opacity: 1;
 }
 
 a {
