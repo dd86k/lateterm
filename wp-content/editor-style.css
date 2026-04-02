@@ -1,0 +1,129 @@
+@charset "utf-8";
+
+/*
+ * Editor styles for the block editor.
+ * WordPress rewrites `body` selectors to `.editor-styles-wrapper`.
+ */
+
+body {
+	background-color: #000084;
+	color: #ffffff;
+	font-family: monospace;
+	font-size: 18px;
+}
+
+a {
+	color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 1em 0;
+	border-bottom: .1em solid white;
+}
+
+hr {
+	border-top: white solid;
+	border-bottom: 0;
+}
+
+pre {
+	border: solid white;
+	padding: 1em;
+	background: #333;
+	overflow-y: scroll;
+}
+
+p code, p kbd {
+	background: #333;
+}
+
+table td, table th {
+	border: 1px solid white;
+	padding: .5em;
+	border-collapse: collapse;
+}
+
+blockquote p::before {
+	content: '\201C';
+}
+blockquote p::after {
+	content: '\201D';
+}
+
+img.alignright {
+	float: right;
+	margin: 1em;
+}
+img.alignleft {
+	float: left;
+	margin: 1em;
+}
+img.aligncenter {
+	display: block;
+	margin: 1em auto;
+}
+
+figcaption {
+	text-align: center;
+	margin: .5em;
+}
+
+input, textarea {
+	font-family: monospace;
+	border: none;
+	background: gray;
+	color: white;
+	padding: 1em;
+}
+
+.wp-block-code {
+	white-space: nowrap;
+}
+
+.wp-block-table.is-style-stripes {
+	border-bottom: 0;
+}
+.wp-block-table.is-style-stripes tbody tr:nth-child(2n+1) {
+	background-color: maroon;
+}
+
+.is-style-rounded img {
+	border-radius: 50% !important;
+}
+
+.wp-block-separator {
+	border-top: white solid;
+	border-bottom: 0;
+	opacity: 1;
+}
+
+.wp-block-quote {
+	border-left: .25em solid white;
+	padding-left: 1em;
+	margin-left: 0;
+}
+
+.wp-block-pullquote {
+	border-top: .25em solid white;
+	border-bottom: .25em solid white;
+	padding: 1em 0;
+	text-align: center;
+}
+
+.wp-block-button .wp-block-button__link {
+	font-family: monospace;
+	background: gray;
+	color: white;
+	border: none;
+	padding: .5em 1em;
+	box-shadow: .3em .3em black;
+	border-radius: 0;
+}
+
+.wp-block-preformatted {
+	font-family: monospace;
+	background: #333;
+	padding: 1em;
+	border: solid white;
+	overflow-x: auto;
+}

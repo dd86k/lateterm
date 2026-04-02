@@ -339,6 +339,59 @@ h3.comment-reply-title {
 	margin: 1em 0 0 2em;
 }
 
+/* ANCHOR Block Editor Blocks */
+
+.wp-block-separator {
+	border-top: white solid;
+	border-bottom: 0;
+	opacity: 1;
+}
+
+.wp-block-quote {
+	border-left: .25em solid white;
+	padding-left: 1em;
+	margin-left: 0;
+}
+
+.wp-block-pullquote {
+	border-top: .25em solid white;
+	border-bottom: .25em solid white;
+	padding: 1em 0;
+	text-align: center;
+}
+
+.wp-block-image img {
+	max-width: 100%;
+	height: auto;
+}
+
+.wp-block-gallery figcaption {
+	color: #ffffff;
+	background: rgba(0, 0, 0, 0.7);
+}
+
+.wp-block-button .wp-block-button__link {
+	font-family: monospace;
+	background: gray;
+	color: white;
+	border: none;
+	padding: .5em 1em;
+	box-shadow: .3em .3em black;
+	border-radius: 0;
+}
+.wp-block-button .wp-block-button__link:hover {
+	background: darkgray;
+	color: black;
+}
+
+.wp-block-preformatted {
+	font-family: monospace;
+	background: #333;
+	padding: 1em;
+	border: solid white;
+	overflow-x: auto;
+}
+
 /* ANCHOR Back to top */
 
 #back-to-top {
