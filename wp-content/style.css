@@ -52,7 +52,7 @@ header ul {
 .main div h4[id]::before,
 .main div h5[id]::before,
 .main div h6[id]::before {
-	content: "\1F517";
+	content: "\2693";
 	float: right;
 	margin-left: .3em;
 	opacity: 0;
