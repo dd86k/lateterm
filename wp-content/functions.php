@@ -217,6 +217,7 @@ function lateterm_header_anchor_script() {
         var h = e.target.closest('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');
         if (h && document.querySelector('.main') && document.querySelector('.main').contains(h)) {
             history.replaceState(null, '', '#' + h.id);
+            h.scrollIntoView();
         }
     });
     </script>
