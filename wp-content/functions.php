@@ -9,6 +9,13 @@ function lateterm_setup() {
 }
 add_action( 'after_setup_theme', 'lateterm_setup' );
 
+function lateterm_enqueue_styles() {
+    $stylesheet = get_stylesheet_directory() . '/style.css';
+    $version    = file_exists( $stylesheet ) ? filemtime( $stylesheet ) : false;
+    wp_enqueue_style( 'lateterm-style', get_stylesheet_uri(), array(), $version );
+}
+add_action( 'wp_enqueue_scripts', 'lateterm_enqueue_styles' );
+
 function lateterm_customize_theme_options_register( $wp_customize ) {
     // SECTION 1: Theme options
     $wp_customize->add_section( 'lateterm_options', array(
@@ -29,7 +36,7 @@ function lateterm_customize_theme_options_register( $wp_customize ) {
     // FONT FAMILY
     $wp_customize->add_setting( 'lateterm_font_family', array(
         'default'           => 'monospace',
-        'sanitize_callback' => 'sanitize_text_field',
+        'sanitize_callback' => 'lateterm_sanitize_font_family',
     ) );
     $wp_customize->add_control( 'lateterm_font_family', array(
         'label'   => __( 'Font Family', 'lateterm' ),
@@ -40,7 +47,7 @@ function lateterm_customize_theme_options_register( $wp_customize ) {
     // FONT SIZE
     $wp_customize->add_setting( 'lateterm_font_size', array(
         'default'           => '18px',
-        'sanitize_callback' => 'sanitize_text_field',
+        'sanitize_callback' => 'lateterm_sanitize_css_length',
     ) );
     $wp_customize->add_control( 'lateterm_font_size', array(
         'label'   => __( 'Font Size', 'lateterm' ),
@@ -61,7 +68,7 @@ function lateterm_customize_theme_options_register( $wp_customize ) {
     // MAX-WIDTH
     $wp_customize->add_setting( 'lateterm_max_width', array(
         'default'           => '70em',
-        'sanitize_callback' => 'sanitize_text_field',
+        'sanitize_callback' => 'lateterm_sanitize_css_length',
     ) );
     $wp_customize->add_control( 'lateterm_max_width', array(
         'label'   => __( 'Content Max Width', 'lateterm' ),
@@ -151,6 +158,25 @@ function lateterm_sanitize_checkbox( $checked ) {
     return ( isset( $checked ) && true == $checked ) ? true : false;
 }
 
+// Restrict font-family to a comma-separated list of family names / generic keywords.
+// Strips anything that could break out of a CSS declaration ({}();/\ etc).
+function lateterm_sanitize_font_family( $value ) {
+    $value = (string) $value;
+    if ( ! preg_match( '/^[A-Za-z0-9 ,_\'"\-]+$/', $value ) ) {
+        return 'monospace';
+    }
+    return $value;
+}
+
+// Restrict CSS length values to <number><unit>, e.g. 18px, 1.5rem, 70em, 100%.
+function lateterm_sanitize_css_length( $value ) {
+    $value = trim( (string) $value );
+    if ( ! preg_match( '/^\d+(?:\.\d+)?(?:px|em|rem|%|vh|vw|pt)$/', $value ) ) {
+        return '';
+    }
+    return $value;
+}
+
 // Pass Customizer values into the block editor
 function lateterm_editor_customizer_styles() {
     $bg_color    = esc_attr( get_theme_mod( 'lateterm_bg_color', '#000084' ) );
@@ -190,17 +216,30 @@ add_action( 'enqueue_block_editor_assets', 'lateterm_editor_customizer_styles' )
 
 // Add id attributes to content headers for anchor links
 function lateterm_add_header_ids( $content ) {
+    if ( is_feed() ) {
+        return $content;
+    }
+    $used = array();
     return preg_replace_callback(
-        '/<(h[1-6])(.*?)>(.*?)<\/\1>/i',
-        function ( $matches ) {
+        '/<(h[1-6])([^>]*)>(.*?)<\/\1>/i',
+        function ( $matches ) use ( &$used ) {
             $tag   = $matches[1];
             $attrs = $matches[2];
             $text  = $matches[3];
-            // Skip if id already exists
-            if ( preg_match( '/\bid\s*=/i', $attrs ) ) {
+            // Skip if id already exists (only match a real id attribute, not e.g. grid=)
+            if ( preg_match( '/(^|\s)id\s*=/i', $attrs ) ) {
                 return $matches[0];
             }
-            $id = sanitize_title( wp_strip_all_tags( $text ) );
+            $base = sanitize_title( wp_strip_all_tags( $text ) );
+            if ( '' === $base ) {
+                return $matches[0];
+            }
+            $id = $base;
+            $i  = 2;
+            while ( isset( $used[ $id ] ) ) {
+                $id = $base . '-' . $i++;
+            }
+            $used[ $id ] = true;
             return sprintf( '<%s%s id="%s">%s</%s>', $tag, $attrs, esc_attr( $id ), $text, $tag );
         },
         $content
