@@ -23,6 +23,17 @@ body {
   max-width: <?php echo esc_attr( get_theme_mod( 'lateterm_max_width', '70em' ) ); ?>;
 	margin: 0 auto;
 }
+.popmain {
+  color: <?php echo esc_attr( get_theme_mod( 'lateterm_popmain_font_color', '#ffffff' ) ); ?>;
+  background: <?php echo esc_attr( get_theme_mod( 'lateterm_popmain_bg_color', '#808080' ) ); ?>;
+}
+.popmain a {
+  color: <?php echo esc_attr( get_theme_mod( 'lateterm_popmain_font_color', '#ffffff' ) ); ?>;
+}
+.menubar {
+  color: <?php echo esc_attr( get_theme_mod( 'lateterm_menubar_font_color', '#ffffff' ) ); ?>;
+  background: <?php echo esc_attr( get_theme_mod( 'lateterm_menubar_bg_color', '#000000' ) ); ?>;
+}
 </style>
 </head>
 <body>
@@ -34,7 +45,7 @@ body {
 <nav class="menubar">
 <?php if (has_nav_menu('primary')) { ?>
   <details class="menu">
-    <summary>Menu</summary>
+    <summary><?php echo esc_html( wp_get_nav_menu_name('primary') ?: 'Menu' ); ?></summary>
     <div class="menupanel"><?php wp_nav_menu(['theme_location' => 'primary', 'container' => false, 'menu_class' => 'pages']); ?></div>
   </details>
 <?php } ?>

@@ -20,72 +20,130 @@ function lateterm_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'lateterm_enqueue_styles' );
 
 function lateterm_customize_theme_options_register( $wp_customize ) {
-    // SECTION 1: Theme options
-    $wp_customize->add_section( 'lateterm_options', array(
+    // PANEL: groups every theme option section together
+    $wp_customize->add_panel( 'lateterm_panel', array(
         'title'    => __( 'Theme Options', 'lateterm' ),
         'priority' => 30,
     ) );
-    
-    // BACKGROUND COLOR
+
+    // SECTION: General (site-wide body styles)
+    $wp_customize->add_section( 'lateterm_general', array(
+        'title' => __( 'General', 'lateterm' ),
+        'panel' => 'lateterm_panel',
+    ) );
+
+    // Site background color
     $wp_customize->add_setting( 'lateterm_bg_color', array(
         'default'           => '#000084',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lateterm_bg_color', array(
         'label'    => __( 'Background Color', 'lateterm' ),
-        'section'  => 'lateterm_options',
+        'section'  => 'lateterm_general',
     ) ) );
-    
-    // FONT FAMILY
+
+    // Font family
     $wp_customize->add_setting( 'lateterm_font_family', array(
         'default'           => 'monospace',
         'sanitize_callback' => 'lateterm_sanitize_font_family',
     ) );
     $wp_customize->add_control( 'lateterm_font_family', array(
         'label'   => __( 'Font Family', 'lateterm' ),
-        'section' => 'lateterm_options',
+        'section' => 'lateterm_general',
         'type'    => 'text',
     ) );
-    
-    // FONT SIZE
+
+    // Font size
     $wp_customize->add_setting( 'lateterm_font_size', array(
         'default'           => '18px',
         'sanitize_callback' => 'lateterm_sanitize_css_length',
     ) );
     $wp_customize->add_control( 'lateterm_font_size', array(
         'label'   => __( 'Font Size', 'lateterm' ),
-        'section' => 'lateterm_options',
+        'section' => 'lateterm_general',
         'type'    => 'text',
     ) );
-    
-    // FONT COLOR
+
+    // Font color
     $wp_customize->add_setting( 'lateterm_font_color', array(
         'default'           => '#ffffff',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lateterm_font_color', array(
         'label'    => __( 'Font Color', 'lateterm' ),
-        'section'  => 'lateterm_options',
+        'section'  => 'lateterm_general',
     ) ) );
-    
-    // MAX-WIDTH
+
+    // Content max-width
     $wp_customize->add_setting( 'lateterm_max_width', array(
         'default'           => '70em',
         'sanitize_callback' => 'lateterm_sanitize_css_length',
     ) );
     $wp_customize->add_control( 'lateterm_max_width', array(
         'label'   => __( 'Content Max Width', 'lateterm' ),
-        'section' => 'lateterm_options',
+        'section' => 'lateterm_general',
         'type'    => 'text',
     ) );
+
+    // SECTION: Title (the .popmain header block)
+    $wp_customize->add_section( 'lateterm_title', array(
+        'title' => __( 'Title', 'lateterm' ),
+        'panel' => 'lateterm_panel',
+    ) );
+
+    // Title background color
+    $wp_customize->add_setting( 'lateterm_popmain_bg_color', array(
+        'default'           => '#808080',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lateterm_popmain_bg_color', array(
+        'label'    => __( 'Background Color', 'lateterm' ),
+        'section'  => 'lateterm_title',
+    ) ) );
+
+    // Title font color
+    $wp_customize->add_setting( 'lateterm_popmain_font_color', array(
+        'default'           => '#ffffff',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lateterm_popmain_font_color', array(
+        'label'    => __( 'Font Color', 'lateterm' ),
+        'section'  => 'lateterm_title',
+    ) ) );
+
+    // SECTION: Menu Bar (the .menubar nav)
+    $wp_customize->add_section( 'lateterm_menubar', array(
+        'title' => __( 'Menu Bar', 'lateterm' ),
+        'panel' => 'lateterm_panel',
+    ) );
+
+    // Menu bar background color
+    $wp_customize->add_setting( 'lateterm_menubar_bg_color', array(
+        'default'           => '#000000',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lateterm_menubar_bg_color', array(
+        'label'    => __( 'Background Color', 'lateterm' ),
+        'section'  => 'lateterm_menubar',
+    ) ) );
+
+    // Menu bar font color
+    $wp_customize->add_setting( 'lateterm_menubar_font_color', array(
+        'default'           => '#ffffff',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'lateterm_menubar_font_color', array(
+        'label'    => __( 'Font Color', 'lateterm' ),
+        'section'  => 'lateterm_menubar',
+    ) ) );
 }
 add_action( 'customize_register', 'lateterm_customize_theme_options_register' );
 
 function lateterm_customize_theme_show_register( $wp_customize ) {
-    // SECTION 2: Show
+    // SECTION: Visibility
     $wp_customize->add_section( 'lateterm_visibility', array(
-        'title'    => __( 'Visibility Options', 'lateterm' ),
-        'priority' => 31,
+        'title' => __( 'Visibility', 'lateterm' ),
+        'panel' => 'lateterm_panel',
     ) );
     
     // Show SEARCH
