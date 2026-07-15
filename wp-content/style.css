@@ -98,7 +98,7 @@ input[type="checkbox"] {
 }
 
 .popmain {
-	margin: 1em auto 2em;
+	margin: 1em auto;
 	padding: 1em;
 	text-align: center;
 	width: 90%;
@@ -137,8 +137,7 @@ blockquote p::after {
 /* ANCHOR Main post content */
 
 .main {
-	display: inline-block;
-	width: 70%;
+	width: 100%;
 	padding: 0 1em;
 	box-sizing: border-box;
 }
@@ -195,83 +194,92 @@ blockquote p::after {
 	background-color: maroon;
 }
 
-/** ANCHOR Navbar */
+/** ANCHOR Menu bar */
 
-nav {
-	margin: 0;
+.menubar {
+	display: flex;
+	margin: 0 0 1em;
 	background: black;
 }
-nav div {
-	display: inline-block;
-	width: 100%;
+.menu {
+	position: relative;
 }
-nav ul li {
-	display: inline-block;
-	padding: .2em;
+.menu-right {
+	margin-left: auto;
 }
-nav a {
+.menu > summary {
+	padding: .2em .6em;
 	white-space: pre;
-	text-decoration: none;
+	cursor: pointer;
+	user-select: none;
+	list-style: none;
 }
-nav a::before { content: ' '; }
-nav a::after { content: ' '; }
-
-.menu, .menu ul  {
-	margin: 0;
-	padding: 0;
+.menu > summary::-webkit-details-marker {
+	display: none;
 }
-
-.content {
-	width: 100%;
-}
-
-/** ANCHOR Sidebar */
-
-.sidebar {
+.menu[open] > summary {
 	color: black;
-	display: inline-block;
-	vertical-align: top;
-	width: 25%;
+	background: white;
+}
+.menupanel {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 10;
+	min-width: 12em;
 	padding: 1em;
+	color: black;
 	background: darkgray;
 	box-sizing: border-box;
 }
-.sidebar ul {
-	margin: 1em 0;
+.menu-right .menupanel {
+	left: auto;
+	right: 0;
+}
+.menu-search .menupanel {
+	min-width: 30em;
+}
+
+.content {
+	width: 95%;
+	margin: 0 auto;
+}
+
+/** ANCHOR Menu dropdown contents */
+
+.menupanel ul {
+	margin: 0;
 	padding: 0;
 }
-.sidebar li {
-	margin: 0 0 1em 0;
+.menupanel li {
 	list-style: none;
 }
-.sidebar ul li a {
-	display: inline-block;
-	width: 100%;
-	text-align: center;
-	/* Should eventually have "color_4" setting */
-	background: gray;
+.menupanel li a {
+	display: block;
+	padding: .2em .4em;
+	color: black;
 	font-weight: bold;
+	white-space: nowrap;
 	text-decoration: none;
 }
-.sidebar ul li a::before {
-	content: ' ';
+.menupanel li a:hover,
+.menupanel li a:focus {
+	color: white;
+	background: navy;
 }
-.sidebar ul li a::after {
-	content: ' ';
+.menupanel form {
+	margin: 0;
 }
-.sidebar form {
-	margin: 0 0 2em 0;
-}
-.sidebar table, #s, #searchsubmit  {
+.menupanel table, .menupanel #s, .menupanel #searchsubmit {
 	width: 100%;
+	box-sizing: border-box;
 }
-.sidebar div a {
-	color: black;
+.menupanel #s {
+	padding: 1em;
 }
-.sidebar p.t {
-	text-align: center;
-	background: white;
-	font-weight: bold;
+.menupanel li.sep {
+	margin: .3em 0;
+	border-top: .1em solid black;
 }
 
 /* ANCHOR single post footer */

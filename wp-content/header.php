@@ -26,14 +26,17 @@ body {
 </style>
 </head>
 <body>
-<nav>
-<?php wp_nav_menu(); ?>
-</nav>
 <div class="pagecontent">
 <div class="popmain">
   <h1 class="title"><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
   <h2 class="title"><?php bloginfo('description'); ?></h2>
 </div>
+<nav class="menubar">
+  <details class="menu">
+    <summary>Pages</summary>
+    <div class="menupanel"><?php wp_nav_menu(['container' => false, 'menu_class' => 'pages']); ?></div>
+  </details>
+  <?php get_sidebar(); ?>
+</nav>
 <div class="content">
-  <div class="sidebar"><?php get_sidebar(); ?></div>
 <div class="main">
