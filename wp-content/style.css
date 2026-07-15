@@ -201,6 +201,7 @@ blockquote p::after {
 
 .menubar {
 	display: flex;
+	position: relative;
 	margin: 0 0 1em;
 	background: black;
 }
@@ -239,8 +240,13 @@ blockquote p::after {
 	left: auto;
 	right: 0;
 }
+.menu-search {
+	position: static;
+}
 .menu-search .menupanel {
-	min-width: 30em;
+	left: 0;
+	right: 0;
+	min-width: 0;
 }
 
 .content {
