@@ -34,6 +34,15 @@ body {
   color: <?php echo esc_attr( get_theme_mod( 'lateterm_menubar_font_color', '#ffffff' ) ); ?>;
   background: <?php echo esc_attr( get_theme_mod( 'lateterm_menubar_bg_color', '#000000' ) ); ?>;
 }
+<?php if ( ! get_theme_mod( 'lateterm_drop_shadows', true ) ) : ?>
+input, textarea,
+.popmain,
+.comment-list > .comment,
+.wp-block-button .wp-block-button__link,
+#back-to-top {
+  box-shadow: none;
+}
+<?php endif; ?>
 </style>
 </head>
 <body>

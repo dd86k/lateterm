@@ -85,6 +85,17 @@ function lateterm_customize_theme_options_register( $wp_customize ) {
         'type'    => 'text',
     ) );
 
+    // Drop shadows (title, inputs, comments, buttons, back-to-top)
+    $wp_customize->add_setting( 'lateterm_drop_shadows', array(
+        'default'           => true,
+        'sanitize_callback' => 'lateterm_sanitize_checkbox',
+    ) );
+    $wp_customize->add_control( 'lateterm_drop_shadows', array(
+        'label'   => __( 'Drop shadows', 'lateterm' ),
+        'section' => 'lateterm_general',
+        'type'    => 'checkbox',
+    ) );
+
     // SECTION: Title (the .popmain header block)
     $wp_customize->add_section( 'lateterm_title', array(
         'title' => __( 'Title', 'lateterm' ),
@@ -268,6 +279,16 @@ function lateterm_editor_customizer_styles() {
             max-width: {$max_width};
         }
     ";
+
+    if ( ! get_theme_mod( 'lateterm_drop_shadows', true ) ) {
+        $css .= "
+            .editor-styles-wrapper input,
+            .editor-styles-wrapper textarea,
+            .editor-styles-wrapper .wp-block-button .wp-block-button__link {
+                box-shadow: none;
+            }
+        ";
+    }
 
     wp_register_style( 'lateterm-editor-customizer', false );
     wp_enqueue_style( 'lateterm-editor-customizer' );
