@@ -1,8 +1,8 @@
 <!DOCTYPE html prefix="og: https://ogp.me/ns#">
 <html <?php language_attributes(); ?>>
 <head>
-<title><?php bloginfo('name'); ?></title>
 <meta charset="<?php bloginfo('charset'); ?>" />
+<title><?php bloginfo('name'); ?></title>
 <meta property="og:title" content="<?= esc_attr(wp_get_document_title()) ?>" />
 <meta property="og:type" content="<?= is_single() ? 'article' : 'website' ?>" />
 <meta property="og:url" content="<?= esc_url(get_permalink()) ?>" />
