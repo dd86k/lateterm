@@ -32,9 +32,17 @@ body {
   <h2 class="title"><?php bloginfo('description'); ?></h2>
 </div>
 <nav class="menubar">
+<?php if (has_nav_menu('primary')) { ?>
+  <details class="menu">
+    <summary>Menu</summary>
+    <div class="menupanel"><?php wp_nav_menu(['theme_location' => 'primary', 'container' => false, 'menu_class' => 'pages']); ?></div>
+  </details>
+<?php } ?>
   <details class="menu">
     <summary>Pages</summary>
-    <div class="menupanel"><?php wp_nav_menu(['container' => false, 'menu_class' => 'pages']); ?></div>
+    <div class="menupanel">
+      <ul class="pages"><?php wp_list_pages(['title_li' => '']); ?></ul>
+    </div>
   </details>
   <?php get_sidebar(); ?>
 </nav>

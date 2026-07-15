@@ -6,6 +6,9 @@ function lateterm_setup() {
     add_theme_support( 'align-wide' );
     add_editor_style( 'style.css' );
     add_editor_style( 'editor-style.css' );
+    register_nav_menus( array(
+        'primary' => __( 'Primary Menu', 'lateterm' ),
+    ) );
 }
 add_action( 'after_setup_theme', 'lateterm_setup' );
 
