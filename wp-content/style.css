@@ -17,7 +17,7 @@ Using https://developer.wordpress.org/themes/
 */
 
 body {
-	margin: 0;
+	margin: 1em;
 	overflow-y: scroll;
 	overflow-x: visible;
 	box-sizing: border-box;
@@ -98,11 +98,7 @@ input[type="checkbox"] {
 }
 
 .popmain {
-	margin: 1em auto;
 	padding: 1em;
-	text-align: center;
-	width: 90%;
-	box-shadow: 1em 1em black;
 	background: gray;
 }
 
@@ -130,6 +126,11 @@ blockquote p::after {
 
 /* ANCHOR Post list */
 
+.posts table {
+	border-spacing: 0;
+	width: 100%;
+}
+
 .posts table td:nth-child(2) {
 	width: 100%;
 }
@@ -138,17 +139,19 @@ blockquote p::after {
 
 .main {
 	width: 100%;
-	padding: 0 1em;
+	/*padding: 0 1em;*/
 	box-sizing: border-box;
 }
 
 .main > div {
 	overflow: auto;
 }
+.main table {
+	border-collapse: collapse;
+}
 .main table td, .main table th {
 	border: 1px solid white;
 	padding: .5em;
-	border-collapse: collapse;
 }
 .main pre {
 	border: solid white;
@@ -241,7 +244,6 @@ blockquote p::after {
 }
 
 .content {
-	width: 95%;
 	margin: 0 auto;
 }
 
